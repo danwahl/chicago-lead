@@ -7,7 +7,10 @@ import requests
 import time
 import re
 import geocoder
-import gmplot
+import geojson
+import json
+from sqlalchemy import create_engine, select, and_
+from water_alert_md import projects, updates
 
 def ListMessagesWithLabels(service, user_id, query='', label_ids=[]):
     try:
@@ -59,7 +62,10 @@ if __name__ == '__main__':
     # pattern for finding cross street
     p = re.compile('\sON\s(.*)\sFROM\s(.*)\sTO\s(.*)')
     
-    gmap = gmplot.GoogleMapPlotter(41.8781, -87.6298, 12)
+    # initialize db engine
+    db = create_engine('sqlite:///water_alert.db', echo=False)
+    
+    #gmap = gmplot.GoogleMapPlotter(41.8781, -87.6298, 12)
     
     # Registration Confirmation
     reg_msgs = ListMessagesWithLabels(service, 'me', 'Registration Confirmation', ['INBOX'])
@@ -78,6 +84,7 @@ if __name__ == '__main__':
         if response == 200:
             ModifyMessage(service, 'me', message['id'], msg_labels)
         
+        # wait a bit before the next one
         time.sleep(1)
     
     # Project Update
@@ -94,26 +101,65 @@ if __name__ == '__main__':
         
         # find the job code
         soup = get_soup(msg)
-        job_id = int(soup.find_all('span')[0].contents[0])
+        project_id = int(soup.find_all('span')[0].contents[0])
         
-        # find cross streets
-        segments = soup.find_all('li')
-        for s in segments:
-            m = p.match(s.contents[0])  
-            if m:
-                print 'Match found: ', m.groups()
-                
-                lats = []
-                lngs = []
-                for i in range(1, 3):
-                    a = m.groups()[0] + ' and ' + m.groups()[i] + ', Chicago, IL'
-                    g = geocoder.google(a)
-                    if g.latlng:
-                        lats.append(g.lat)
-                        lngs.append(g.lng)
-            else:
-                print 'No match'
+        # check for job id in projects table
+        conn = db.connect()
+        s = select([projects], and_(projects.c.id == project_id))
+        res = conn.execute(s).fetchall()
+        conn.close()
         
-        gmap.plot(lats, lngs, 'cornflowerblue', edge_width=10)  
+        # if not in database, geocode and add
+        if not res:
+            loc = []
+            num = 0
+            mls = geojson.MultiLineString()
+            # find cross streets
+            segments = soup.find_all('li')
+            for s in segments:
+                success = True
+                m = p.match(s.contents[0])  
+                if m:
+                    #print 'Match found: ', m.groups()
+                    ls = geojson.LineString()
+                    for i in range(1, 3):
+                        a = m.groups()[0] + ' & ' + m.groups()[i] + ', Chicago, IL'
+                        g = geocoder.google(a)
+                        if g.json['status'] == 'OK':
+                            if g.json['quality'] == 'intersection':
+                                ls.coordinates.append(g.latlng)
+                            else: success = False
+                        else: success = False
+                    
+                    # update geo info
+                    num += 1
+                    loc.append(re.sub(' +', ' ', s.contents[0]).encode('ascii', 'ignore'))
+                    if success:
+                        mls.coordinates.append(ls.coordinates)
+                    else:
+                        print str(project_id) + ' ' + s.contents[0]
+                        mls.coordinates.append([])
+            
+            # insert into table   
+            conn = db.connect()
+            ins = projects.insert(values=dict(id=project_id, num=num, loc=json.dumps(loc), geo=geojson.dumps(mls)))
+            conn.execute(ins)
+            conn.close()  
+        
+        
+        # add project update and archive
+        update = soup.find_all('h2')[0].contents[0].encode('ascii', 'ignore')
+        date = int(float(msg['internalDate'])/10e3)
+        
+        # insert into table   
+        conn = db.connect()
+        ins = updates.insert(values=dict(id=project_id, date=date, update=update))
+        conn.execute(ins)
+        conn.close()  
+        
+        ModifyMessage(service, 'me', message['id'], msg_labels)
+                    
+        # plot segment
+        #gmap.plot(lats, lngs, 'cyan', edge_width=10)  
     
-    gmap.draw("mymap.html")          
+    #gmap.draw('mymap.html')          
