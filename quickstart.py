@@ -22,7 +22,7 @@ except ImportError:
 
 # If modifying these scopes, delete your previously saved credentials
 # at ~/.credentials/gmail-python-quickstart.json
-SCOPES = 'https://www.googleapis.com/auth/gmail.readonly'
+SCOPES = 'https://mail.google.com/'
 CLIENT_SECRET_FILE = 'client_id.json'
 APPLICATION_NAME = 'Gmail API Python Quickstart'
 
@@ -40,8 +40,7 @@ def get_credentials():
     credential_dir = os.path.join(home_dir, '.credentials')
     if not os.path.exists(credential_dir):
         os.makedirs(credential_dir)
-    credential_path = os.path.join(credential_dir,
-                                   'gmail-python-quickstart.json')
+    credential_path = os.path.join(credential_dir, 'gmail-python-quickstart.json')
 
     store = Storage(credential_path)
     credentials = store.get()

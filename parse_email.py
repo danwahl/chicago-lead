@@ -10,7 +10,7 @@ import geocoder
 import geojson
 import json
 from sqlalchemy import create_engine, select, and_
-from water_alert_md import projects, updates
+from create_db import projects, updates
 
 def ListMessagesWithLabels(service, user_id, query='', label_ids=[]):
     try:
