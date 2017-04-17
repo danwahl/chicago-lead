@@ -81,8 +81,10 @@ if __name__ == '__main__':
     
         # open link, remove labels if successful
         response = requests.get(link)
-        if response == 200:
+        if response.status_code == 200:
             ModifyMessage(service, 'me', message['id'], msg_labels)
+        else:
+            print 'requsts error ' + str(response)
         
         # wait a bit before the next one
         time.sleep(1)
@@ -146,10 +148,9 @@ if __name__ == '__main__':
             conn.execute(ins)
             conn.close()  
         
-        
         # add project update and archive
         update = soup.find_all('h2')[0].contents[0].encode('ascii', 'ignore')
-        date = int(float(msg['internalDate'])/10e3)
+        date = int(float(msg['internalDate'])/1e3)
         
         # insert into table   
         conn = db.connect()
@@ -158,8 +159,3 @@ if __name__ == '__main__':
         conn.close()  
         
         ModifyMessage(service, 'me', message['id'], msg_labels)
-                    
-        # plot segment
-        #gmap.plot(lats, lngs, 'cyan', edge_width=10)  
-    
-    #gmap.draw('mymap.html')          
