@@ -69,7 +69,7 @@ if __name__ == '__main__':
         conn.close()
         
         for r in res:
-            t = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(r['date']*10))
+            t = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(r['date']))
             content += '<div>' + t + ' - ' + r['update'] + '<div>'
           
         f = open('map.html', 'a')
