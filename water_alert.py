@@ -21,13 +21,17 @@ if __name__ == '__main__':
     conn.close()
     
     pids = [pid for sub in res for pid in sub]
-    last = max(pids)
+    if pids:
+        last = max(pids)
+    else:
+        last = 0
     
     site = 'http://buildinganewchicago.org/'
     title = 'Department Water Management - City Of Chicago'
     first_name = 'John'
     last_name = 'Little'
-    email_addr = 'chicagowateralert@gmail.com'
+    email_pre = 'chicagowateralert'
+    email_post = '@gmail.com'
     
     driver = webdriver.Chrome()
     driver.get(site)
@@ -75,6 +79,7 @@ if __name__ == '__main__':
                 lname.clear()
                 lname.send_keys(last_name)
                 
+                email_addr = email_pre + '+' + str(pid) + email_post
                 email = driver.find_element_by_id('Email')
                 email.clear()
                 email.send_keys(email_addr)
