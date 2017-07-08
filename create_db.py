@@ -17,7 +17,7 @@ updates = schema.Table('updates', metadata,
 
 from sqlalchemy.engine import create_engine
 
-db = create_engine('sqlite:///water_alert.db', echo=False)
+db = create_engine('sqlite:///25th_ward.db', echo=False)
 metadata.bind = db
 
 metadata.create_all(checkfirst=True)
