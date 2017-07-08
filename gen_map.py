@@ -14,7 +14,7 @@ if __name__ == '__main__':
     #gmap = gmplot.GoogleMapPlotter(41.8781, -87.6298, 12)
     
     years = range(2011, 2017)
-    cmap = cm.get_cmap('Set1_r', len(years))
+    cmap = cm.get_cmap('gnuplot', len(years))
     colors = [matplotlib.colors.rgb2hex(cmap(i)[:3]) for i in range(cmap.N)]
     cdict = dict(zip(years, colors))
     
