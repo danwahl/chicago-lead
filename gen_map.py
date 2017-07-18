@@ -9,11 +9,11 @@ from pylab import cm, matplotlib
 
 if __name__ == '__main__':
     # initialize db engine
-    db = create_engine('sqlite:///25th_ward.db', echo=False)
+    db = create_engine('sqlite:///water_alert.db', echo=False)
     
     #gmap = gmplot.GoogleMapPlotter(41.8781, -87.6298, 12)
     
-    years = range(2011, 2017)
+    years = range(2011, 2018)
     cmap = cm.get_cmap('gnuplot', len(years))
     colors = [matplotlib.colors.rgb2hex(cmap(i)[:3]) for i in range(cmap.N)]
     cdict = dict(zip(years, colors))
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     res1 = conn.execute(s).fetchall()
     conn.close()
     
-    map_name = '25th_map.html'
+    map_name = 'map.html'
     f = open(map_name, 'w')
     f.write("""<!DOCTYPE html>
 <html>
@@ -96,10 +96,9 @@ if __name__ == '__main__':
         color = 'FFFFFF'
         for r2 in res2:
             date = time.localtime(r2['date'])
-            #t = time.strftime('%Y-%m-%d %H:%M:%S', date)
             t = time.strftime('%Y-%m-%d', date)
-            #content += '<div>' + t + ' - ' + r2['update'] + '</div>'
-            content += '<div>' + t + '</div>'
+            content += '<div>' + t + ' - ' + r2['update'] + '</div>'
+            #content += '<div>' + t + '</div>'
           
         f = open(map_name, 'a')
         f.write(""" 
