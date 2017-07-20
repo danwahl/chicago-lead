@@ -13,10 +13,19 @@ if __name__ == '__main__':
     
     #gmap = gmplot.GoogleMapPlotter(41.8781, -87.6298, 12)
     
+    types = [u'Construction Mobilization', \
+        u'Pipe Installation Completed', \
+        u'Concrete Cap Complete', \
+        u'Street Restoration', \
+        u'Partner Agency Street Restoration', \
+        u'Water Service Transfer Complete', \
+        u'Pressure and Disinfection Tests Approved', \
+        u'Water Main Project Completed']
+    
     years = range(2011, 2018)
-    cmap = cm.get_cmap('gnuplot', len(years))
+    cmap = cm.get_cmap('plasma', len(types))
     colors = [matplotlib.colors.rgb2hex(cmap(i)[:3]) for i in range(cmap.N)]
-    cdict = dict(zip(years, colors))
+    cdict = dict(zip(types, colors))
     
     # check for job id in projects table
     conn = db.connect()
@@ -67,8 +76,8 @@ if __name__ == '__main__':
     <script>
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: {lat: 41.856218, lng: -87.656441},
+          zoom: 12,
+          center: {lat: 41.8781, lng: -87.6298},
           mapTypeId: 'terrain'
         });
 
@@ -79,6 +88,9 @@ if __name__ == '__main__':
     f.close()
     
     for r1 in res1:
+        if not r1['geo']:
+            continue
+        
         mls = geojson.loads(r1['geo'])
             
         content = '<h3>' + str(r1['id']) + '</h3>'
@@ -93,11 +105,12 @@ if __name__ == '__main__':
         conn.close()
         
         date = ''
-        color = 'FFFFFF'
+        ut = ''
         for r2 in res2:
             date = time.localtime(r2['date'])
             t = time.strftime('%Y-%m-%d', date)
-            content += '<div>' + t + ' - ' + r2['update'] + '</div>'
+            ut = r2['type']
+            content += """<div>%s <font color="%s">%s</t></div>""" % (t, cdict[ut], ut)
             #content += '<div>' + t + '</div>'
           
         f = open(map_name, 'a')
@@ -106,6 +119,7 @@ if __name__ == '__main__':
         marker = new google.maps.Marker({
           position: {lat: %f, lng: %f},
           map: map,
+          visible: false,
           icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
         });
         
@@ -135,8 +149,8 @@ if __name__ == '__main__':
           path: mainCoordinates,
           geodesic: true,
           strokeColor: '%s',
-          strokeOpacity: 0.75,
-          strokeWeight: 8
+          strokeOpacity: 0.67,
+          strokeWeight: 10
         });
             
         mainPath.setMap(map);
@@ -147,18 +161,18 @@ if __name__ == '__main__':
               infowindow.open(map, marker);
           };
         })(marker, content, infowindow));  
-        """ % (lat[0], lng[0], lat[1], lng[1], cdict[date.tm_year]))
+        """ % (lat[0], lng[0], lat[1], lng[1], cdict[ut]))
             f.close()
     
             # plot segment
             #gmap.plot(lat, lng, 'lime', edge_width=5)
     
-    for y in years:
+    for t in types:
         f = open(map_name, 'a')
         f.write("""    
         var div = document.createElement('div');
-        div.innerHTML = '<img src="https://maps.google.com/mapfiles/ms/micons/drinking_water.png"> ' + '<font color="%s">%s</font>';
-        legend.appendChild(div);""" % (cdict[y], y))
+        div.innerHTML = '<font color="%s">%s</font>';
+        legend.appendChild(div);""" % (cdict[t], t))
         f.close()
 
     f = open(map_name, 'a')

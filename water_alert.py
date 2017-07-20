@@ -7,8 +7,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from sqlalchemy import create_engine, select, and_
-from create_db import projects, updates
+from sqlalchemy import create_engine, select
+from create_db import projects
 
 if __name__ == '__main__':
     # initialize db engine
@@ -42,7 +42,7 @@ if __name__ == '__main__':
         pid = '{:02d}01{:03d}'.format(r[0], r[1])
         
         # check to see if we've already searched it
-        if pid in pids or int(pid) <= last:
+        if int(pid) in pids:
             continue
         
         # wait for page to load

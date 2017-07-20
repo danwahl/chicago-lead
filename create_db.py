@@ -12,7 +12,7 @@ projects = schema.Table('projects', metadata,
 updates = schema.Table('updates', metadata,
     schema.Column('id', types.Integer),
     schema.Column('date', types.Integer(), default=0),
-    schema.Column('update', types.Text(), default=u''),
+    schema.Column('type', types.Text(), default=u''),
 )
 
 from sqlalchemy.engine import create_engine

@@ -65,7 +65,10 @@ if __name__ == '__main__':
     # initialize db engine
     db = create_engine('sqlite:///water_alert.db', echo=False)
     
-    #gmap = gmplot.GoogleMapPlotter(41.8781, -87.6298, 12)
+    welcome_msgs = ListMessagesWithLabels(service, 'me', 'Welcome', ['INBOX'])
+    for message in welcome_msgs:     
+        # remove labels
+        ModifyMessage(service, 'me', message['id'], msg_labels)
     
     # Registration Confirmation
     reg_msgs = ListMessagesWithLabels(service, 'me', 'Registration Confirmation', ['INBOX'])
@@ -73,6 +76,24 @@ if __name__ == '__main__':
         # get message info
         msg = GetMessage(service, 'me', message['id'])
         #print msg['id']
+        
+        # get job code
+        addr = msg['payload']['headers'][0]['value']
+        pid = int(re.split('[@+]', addr)[1])
+        
+        # check for job id in projects table
+        conn = db.connect()
+        s = select([projects], and_(projects.c.id == pid))
+        res = conn.execute(s).fetchall()
+        conn.close()
+        
+        # add to table if not there
+        if not res:
+            # insert into table   
+            conn = db.connect()
+            ins = projects.insert(values=dict(id=pid))
+            conn.execute(ins)
+            conn.close()  
         
         # find the registration confirmation link
         soup = get_soup(msg)       
@@ -108,11 +129,11 @@ if __name__ == '__main__':
         # check for job id in projects table
         conn = db.connect()
         s = select([projects], and_(projects.c.id == project_id))
-        res = conn.execute(s).fetchall()
+        res = conn.execute(s).fetchone()
         conn.close()
         
         # if not in database, geocode and add
-        if not res:
+        if not res['geo']:
             loc = []
             num = 0
             mls = geojson.MultiLineString()
@@ -142,10 +163,11 @@ if __name__ == '__main__':
                         print str(project_id) + ' ' + s.contents[0]
                         mls.coordinates.append([])
             
-            # insert into table   
+            # update table   
             conn = db.connect()
-            ins = projects.insert(values=dict(id=project_id, num=num, loc=json.dumps(loc), geo=geojson.dumps(mls)))
-            conn.execute(ins)
+            #ins = projects.insert(values=dict(id=project_id, num=num, loc=json.dumps(loc), geo=geojson.dumps(mls)))
+            stmt = projects.update(values=dict(num=num, loc=json.dumps(loc), geo=geojson.dumps(mls))).where(projects.c.id == project_id)
+            conn.execute(stmt)
             conn.close()  
         
         # add project update and archive
@@ -154,7 +176,7 @@ if __name__ == '__main__':
         
         # insert into table   
         conn = db.connect()
-        ins = updates.insert(values=dict(id=project_id, date=date, update=update))
+        ins = updates.insert(values=dict(id=project_id, date=date, type=update))
         conn.execute(ins)
         conn.close()  
         
