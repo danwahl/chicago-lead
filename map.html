@@ -1,0 +1,2248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Chicago Lead Map</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #legend {
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+        background: #fff;
+        padding: 10px;
+        margin: 10px;
+        border: 3px solid #000;
+      }
+      #legend h3 {
+        margin-top: 0;
+      }
+      #legend img {
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <div id="legend"><h3>Legend</h3></div>
+    <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: {lat: 41.8781, lng: -87.6298},
+          mapTypeId: 'terrain'
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+        var marker, content, mainCoordinates, mainPath;  
+        var legend = document.getElementById('legend');
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.928489, lng: -87.693874},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701018</h3><div>ON N TALMAN AVE FROM W LOGAN BLVD (SOUTH) TO W FULLERTON AVE<div><div>ON W ALTGELD ST FROM N WASHTENAW AVE TO N TALMAN AVE<div><br><div>2017-07-11 <font color="#8b0aa5">Concrete Cap Complete</t></div><div>2017-07-21 <font color="#b83289">Street Restoration</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.928489, lng: -87.693874},
+          {lat: 41.924819, lng: -87.693772}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#b83289',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.926646, lng: -87.695025},
+          {lat: 41.926658, lng: -87.693808}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#b83289',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.921911, lng: -87.682681},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701019</h3><div>ON N LEAVITT ST FROM W PALMER ST TO W ARMITAGE AVE<div><div>ON N LEAVITT ST FROM W ARMITAGE AVE TO N MILWAUKEE AVE<div><div>ON W WEBSTER AVE FROM N LEAVITT ST TO N HOYNE AVE<div><br><div>2017-07-11 <font color="#db5c68">Partner Agency Street Restoration</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.921911, lng: -87.682681},
+          {lat: 41.917664, lng: -87.682531}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#db5c68',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.917664, lng: -87.682531},
+          {lat: 41.913583, lng: -87.682414}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#db5c68',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.921318, lng: -87.682645},
+          {lat: 41.921360, lng: -87.680209}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#db5c68',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.986672, lng: -87.711443},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701024</h3><div>ON N SPAULDING AVE FROM W ARDMORE AVE TO W BRYN MAWR AVE<div><div>ON W HOLLYWOOD AVE FROM N SPAULDING AVE TO N JERSEY AVE<div><div>ON W VICTORIA ST FROM N SPAULDING AVE TO N JERSEY AVE<div><div>ON W OLIVE AVE FROM N SPAULDING AVE TO N JERSEY AVE<div><br><div>2017-07-07 <font color="#8b0aa5">Concrete Cap Complete</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.986672, lng: -87.711443},
+          {lat: 41.983044, lng: -87.711295}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#8b0aa5',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.984852, lng: -87.711365},
+          {lat: 41.984966, lng: -87.709388}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#8b0aa5',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.985771, lng: -87.711403},
+          {lat: 41.985867, lng: -87.709669}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#8b0aa5',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.983948, lng: -87.711336},
+          {lat: 41.984063, lng: -87.709131}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#8b0aa5',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.955923, lng: -87.683659},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701026</h3><div>ON W BELLE PLAINE AVE FROM N LEAVITT ST TO N LINCOLN AVE<div><div>ON N LINCOLN AVE FROM W MONTROSE AVE TO W IRVING PARK RD<div><br><div>2017-07-18 <font color="#febd2a">Pressure and Disinfection Tests Approved</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.955923, lng: -87.683659},
+          {lat: 41.955960, lng: -87.679990}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#febd2a',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.961373, lng: -87.683821},
+          {lat: 41.954199, lng: -87.678745}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#febd2a',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.972266, lng: -87.687787},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701027</h3><div>ON N CLAREMONT AVE FROM W ARGYLE ST TO W LAWRENCE AVE<div><br><div>2017-07-18 <font color="#0d0887">Construction Mobilization</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.972266, lng: -87.687787},
+          {lat: 41.968624, lng: -87.687680}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 42.015586, lng: -87.686171},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701028</h3><div>ON N BELL AVE FROM W JARVIS AVE TO W TOUHY AVE<div><div>ON N OAKLEY AVE FROM W CHASE AVE TO W TOUHY AVE<div><div>ON N HAMILTON AVE FROM W CHASE AVE TO W TOUHY AVE<div><br><div>2017-07-11 <font color="#5302a3">Pipe Installation Completed</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 42.015586, lng: -87.686171},
+          {lat: 42.012229, lng: -87.686126}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 42.014067, lng: -87.687526},
+          {lat: 42.012248, lng: -87.687547}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 42.014031, lng: -87.684962},
+          {lat: 42.012219, lng: -87.684985}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.950192, lng: -87.715266},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701037</h3><div>ON W GRACE ST FROM N ST LOUIS AVE TO N ELSTON AVE<div><div>ON N DRAKE AVE FROM N ELSTON AVE TO W GRACE ST<div><div>ON W GRACE ST FROM N CENTRAL PARK AVE TO N ST LOUIS AVE<div><div>ON N DRAKE AVE FROM N GRACE ST TO W ADDISON ST<div><br><div>2017-07-21 <font color="#f48849">Water Service Transfer Complete</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.950192, lng: -87.715266},
+          {lat: 41.950189, lng: -87.714041}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f48849',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.951897, lng: -87.716536},
+          {lat: 41.950163, lng: -87.716472}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f48849',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.950143, lng: -87.717698},
+          {lat: 41.950192, lng: -87.715266}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f48849',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.950163, lng: -87.716472},
+          {lat: 41.946523, lng: -87.716380}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f48849',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.926253, lng: -87.658492},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701052</h3><div>ON W MONTANA ST FROM N RACINE AVE TO N LINCOLN AVE<div><div>ON N SEMINARY AVE FROM W LILL AVE TO W FULLERTON AVE<div><div>ON W ALTGELD ST FROM N RACINE AVE TO N LINCOLN AVE<div><br><div>2017-07-18 <font color="#5302a3">Pipe Installation Completed</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.926253, lng: -87.658492},
+          {lat: 41.926688, lng: -87.650525}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.928062, lng: -87.656129},
+          {lat: 41.925338, lng: -87.656028}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.927098, lng: -87.658513},
+          {lat: 41.927229, lng: -87.651278}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.928439, lng: -87.699971},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701056</h3><div>ON N FRANCISCO AVE FROM W LOGAN BLVD TO W FULLERTON AVE<div><br><div>2017-07-12 <font color="#b83289">Street Restoration</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.928439, lng: -87.699971},
+          {lat: 41.924742, lng: -87.699857}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#b83289',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.932062, lng: -87.703737},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701057</h3><div>ON N WHIPPLE ST FROM W DIVERSEY AVE TO W LOGAN BLVD N<div><br><div>2017-07-21 <font color="#f48849">Water Service Transfer Complete</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.932062, lng: -87.703737},
+          {lat: 41.928409, lng: -87.703649}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f48849',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.913891, lng: -87.745891},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701062</h3><div>ON N CICERO ST FROM W GRAND AVE TO W NORTH AVE<div><div>ON W GRAND AVE FROM N LA CROSSE AVE TO N KEATING AVE<div><div>ON N CICERO AVE FROM W ARMITAGE AVE TO W CORTLAND ST<div><br><div>2017-07-17 <font color="#5302a3">Pipe Installation Completed</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.913891, lng: -87.745891},
+          {lat: 41.909574, lng: -87.746195}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.914419, lng: -87.748161},
+          {lat: 41.913428, lng: -87.744770}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.916935, lng: -87.746169},
+          {lat: 41.915101, lng: -87.746091}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.755404, lng: -87.561451},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701070</h3><div>ON E 77TH ST FROM S COLFAX AVE TO S BURNHAM AVE<div><div>ON S MARQUETTE AVE FROM E 76TH ST TO E 79TH ST<div><div>ON E 78TH ST FROM S MARQUETTE AVE TO S BURNHAM AVE<div><br><div>2017-07-17 <font color="#f0f921">Water Main Project Completed</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.755404, lng: -87.561451},
+          {lat: 41.755463, lng: -87.557066}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f0f921',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.757259, lng: -87.558549},
+          {lat: 41.751818, lng: -87.558961}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f0f921',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.753627, lng: -87.558480},
+          {lat: 41.753652, lng: -87.557017}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f0f921',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.781408, lng: -87.655809},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701074</h3><div>ON S ELIZABETH ST FROM W 62ND ST TO W 63RD ST<div><div>ON W 62ND ST FROM S ELIZABETH ST TO S RACINE AVE<div><br><div>2017-07-11 <font color="#febd2a">Pressure and Disinfection Tests Approved</t></div><div>2017-07-17 <font color="#f48849">Water Service Transfer Complete</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.781408, lng: -87.655809},
+          {lat: 41.779599, lng: -87.655726}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f48849',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.781408, lng: -87.655809},
+          {lat: 41.781439, lng: -87.654541}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f48849',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.779566, lng: -87.656933},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701075</h3><div>ON S THROOP ST FROM W 63RD ST TO W 64TH ST<div><div>ON S ELIZABETH ST FROM W 63RD ST TO W 64TH ST<div><br><div>2017-07-17 <font color="#5302a3">Pipe Installation Completed</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.779566, lng: -87.656933},
+          {lat: 41.777758, lng: -87.656884}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.779599, lng: -87.655726},
+          {lat: 41.777765, lng: -87.655677}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.754162, lng: -87.651412},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701076</h3><div>ON W 77TH ST FROM S ABERDEEN ST TO S HALSTED ST<div><div>ON S CARPENTER ST FROM W 77TH ST TO W 79TH ST<div><br><div>2017-07-07 <font color="#8b0aa5">Concrete Cap Complete</t></div><div>2017-07-18 <font color="#b83289">Street Restoration</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.754162, lng: -87.651412},
+          {lat: 41.754270, lng: -87.644134}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#b83289',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.754183, lng: -87.650207},
+          {lat: 41.750534, lng: -87.650105}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#b83289',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.778468, lng: -87.739836},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701080</h3><div>ON S KILPATRICK AVE FROM W 63RD ST TO W 67TH ST<div><br><div>2017-07-10 <font color="#f0f921">Water Main Project Completed</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.778468, lng: -87.739836},
+          {lat: 41.771173, lng: -87.739635}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f0f921',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.770528, lng: -87.717643},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701086</h3><div>ON W 67TH PL FROM S HAMLIN AVE TO S CENTRAL PARK AVE<div><div>ON S HAMLIN AVE FROM W MARQUETTE RD TO W 68TH PL<div><br><div>2017-07-21 <font color="#f48849">Water Service Transfer Complete</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.770528, lng: -87.717643},
+          {lat: 41.771521, lng: -87.712539}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f48849',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.771448, lng: -87.717670},
+          {lat: 41.768708, lng: -87.717601}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f48849',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.887992, lng: -87.661150},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701087</h3><div>ON W ARBOUR PL FROM N OGDEN AVE TO N ADA ST<div><div>ON N OGDEN AVE FROM W KINZIE ST TO W ARBOUR PL<div><div>ON N ADA ST FROM N OGDEN AVE TO W LAKE ST<div><div>ON N ADA ST FROM W HUBBARD ST TO W KINZIE ST<div><br><div>2017-07-17 <font color="#5302a3">Pipe Installation Completed</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.887992, lng: -87.661150},
+          {lat: 41.887988, lng: -87.660855}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.888919, lng: -87.660549},
+          {lat: 41.887992, lng: -87.661150}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.888283, lng: -87.660977},
+          {lat: 41.885455, lng: -87.660760}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.889947, lng: -87.660888},
+          {lat: 41.888985, lng: -87.660754}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.886940, lng: -87.730741},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701091</h3><div>ON W CARROLL AVE FROM N KEELER AVE TO N PULASKI RD<div><div>ON N KEELER AVE FROM W CARROLL AVE TO W LAKE ST<div><div>ON N PULASKI RD FROM W CARROLL AVE TO W LAKE ST<div><div>ON W CARROLL AVE FROM KOSTNER AVE TO KEELER AVE<div><div>ON N KARLOV AVE FROM W CARROLL AVE TO W LAKE ST<div><br><div>2017-07-18 <font color="#0d0887">Construction Mobilization</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.886940, lng: -87.730741},
+          {lat: 41.886817, lng: -87.725830}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.886940, lng: -87.730741},
+          {lat: 41.885768, lng: -87.730727}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.886817, lng: -87.725830},
+          {lat: 41.885516, lng: -87.725791}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.886870, lng: -87.735670},
+          {lat: 41.886940, lng: -87.730741}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.886780, lng: -87.728285},
+          {lat: 41.885623, lng: -87.728242}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.891112, lng: -87.763410},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701096</h3><div>ON W OHIO ST FROM N PINE AVE TO N LARAMIE AVE<div><div>ON N LONG AVE FROM W HURON AVE TO W OHIO ST<div><br><div>2017-07-18 <font color="#febd2a">Pressure and Disinfection Tests Approved</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.891112, lng: -87.763410},
+          {lat: 41.891188, lng: -87.755461}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#febd2a',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.892958, lng: -87.760567},
+          {lat: 41.891143, lng: -87.760500}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#febd2a',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.874485, lng: -87.715690},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701099</h3><div>ON W CONGRESS PKWY FROM S CENTRAL PARK AVE TO S ST LOUIS AVE<div><div>ON S ST LOUIS AVE FROM W VAN BUREN ST TO W CONGRESS PKWY<div><br><div>2017-07-11 <font color="#0d0887">Construction Mobilization</t></div><div>2017-07-18 <font color="#5302a3">Pipe Installation Completed</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.874485, lng: -87.715690},
+          {lat: 41.874507, lng: -87.712922}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.875424, lng: -87.712953},
+          {lat: 41.874507, lng: -87.712922}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.864825, lng: -87.684351},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701100</h3><div>ON S HEATH AVE FROM W 13TH ST TO W 13TH ST<div><div>ON S OAKLEY AVE FROM W 13TH ST TO W 13TH ST<div><br><div>2017-07-18 <font color="#0d0887">Construction Mobilization</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.864825, lng: -87.684351},
+          {lat: 41.864825, lng: -87.684351}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.864832, lng: -87.683537},
+          {lat: 41.864832, lng: -87.683537}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.884224, lng: -87.765003},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701113</h3><div>ON W WEST END AVE FROM N CENTRAL AVE TO N LONG AVE<div><div>ON N LONG AVE FROM W WEST END AVE TO W MADISON ST<div><br><div>2017-07-05 <font color="#0d0887">Construction Mobilization</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.884224, lng: -87.765003},
+          {lat: 41.883987, lng: -87.760238}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.883987, lng: -87.760238},
+          {lat: 41.880305, lng: -87.760110}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.679678, lng: -87.640762},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701115</h3><div>ON S EMERALD AVE FROM W 118TH ST TO W 120TH ST<div><div>ON W 118TH PL FROM S HALSTED ST TO S EMERALD AVE<div><br><div>2017-07-17 <font color="#5302a3">Pipe Installation Completed</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.679678, lng: -87.640762},
+          {lat: 41.676003, lng: -87.641001}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.678704, lng: -87.641863},
+          {lat: 41.678714, lng: -87.640732}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.736016, lng: -87.643529},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701119</h3><div>ON S HALSTED ST FROM W 87TH ST TO W 90TH ST<div><br><div>2017-07-17 <font color="#8b0aa5">Concrete Cap Complete</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.736016, lng: -87.643529},
+          {lat: 41.730784, lng: -87.643534}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#8b0aa5',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.747621, lng: -87.607565},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701145</h3><div>ON E 81ST ST FROM S LANGLEY AVE TO S EVANS AVE<div><div>ON S LANGLEY AVE FROM E 79TH ST TO E 83RD ST<div><br><div>2017-07-17 <font color="#5302a3">Pipe Installation Completed</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.747621, lng: -87.607565},
+          {lat: 41.747553, lng: -87.606349}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.751235, lng: -87.607660},
+          {lat: 41.743922, lng: -87.607462}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.961166, lng: -87.710679},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701146</h3><div>ON N SPAULDING AVE FROM W MONTROSE AVE TO W BERTEAU AVE<div><div>ON W PENSACOLA AVE FROM N KIMBALL AVE TO N SPAULDING AVE<div><br><div>2017-07-18 <font color="#0d0887">Construction Mobilization</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.961166, lng: -87.710679},
+          {lat: 41.957537, lng: -87.710582}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.960227, lng: -87.713091},
+          {lat: 41.960253, lng: -87.710673}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.832319, lng: -87.666771},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701160</h3><div>ON S MARSHFIELD AVE FROM W 34TH ST TO W 35TH ST<div><div>ON W 34TH ST FROM S ARCHER AVE TO S ASHLAND AVE<div><br><div>2017-07-05 <font color="#0d0887">Construction Mobilization</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.832319, lng: -87.666771},
+          {lat: 41.830489, lng: -87.666719}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.832682, lng: -87.673889},
+          {lat: 41.832335, lng: -87.665668}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.807464, lng: -87.622792},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701162</h3><div>ON E 48TH ST FROM S MICHIGAN AVE TO S INDIANA AVE<div><div>ON S INDIANA AVE FROM E 47TH ST TO E 51ST ST<div><div>ON E 50TH ST FROM S INDIANA AVE TO S PRAIRIE AVE<div><div>ON E 49TH ST FROM S MICHIGAN AVE TO S CALUMET AVE<div><br><div>2017-07-11 <font color="#5302a3">Pipe Installation Completed</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.807464, lng: -87.622792},
+          {lat: 41.807491, lng: -87.621146}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.809311, lng: -87.621182},
+          {lat: 41.802014, lng: -87.621026}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.803846, lng: -87.621079},
+          {lat: 41.803871, lng: -87.619451}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.805635, lng: -87.622735},
+          {lat: 41.805710, lng: -87.618071}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#5302a3',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.796633, lng: -87.675596},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701166</h3><div>ON S SEELEY AVE FROM W 53RD PL TO W GARFIELD BLVD<div><div>ON W 54TH PL FROM S HOYNE AVE TO S HOYNE AVE<div><div>ON W 54TH ST FROM S HOYNE AVE TO S HOYNE AVE<div><br><div>2017-07-19 <font color="#0d0887">Construction Mobilization</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.796633, lng: -87.675596},
+          {lat: 41.793527, lng: -87.675503}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.794795, lng: -87.676759},
+          {lat: 41.794795, lng: -87.676759}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.795713, lng: -87.676790},
+          {lat: 41.795713, lng: -87.676790}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+            
+        var div = document.createElement('div');
+        div.innerHTML = '<font color="#0d0887">Construction Mobilization</font>';
+        legend.appendChild(div);    
+        var div = document.createElement('div');
+        div.innerHTML = '<font color="#5302a3">Pipe Installation Completed</font>';
+        legend.appendChild(div);    
+        var div = document.createElement('div');
+        div.innerHTML = '<font color="#8b0aa5">Concrete Cap Complete</font>';
+        legend.appendChild(div);    
+        var div = document.createElement('div');
+        div.innerHTML = '<font color="#b83289">Street Restoration</font>';
+        legend.appendChild(div);    
+        var div = document.createElement('div');
+        div.innerHTML = '<font color="#db5c68">Partner Agency Street Restoration</font>';
+        legend.appendChild(div);    
+        var div = document.createElement('div');
+        div.innerHTML = '<font color="#f48849">Water Service Transfer Complete</font>';
+        legend.appendChild(div);    
+        var div = document.createElement('div');
+        div.innerHTML = '<font color="#febd2a">Pressure and Disinfection Tests Approved</font>';
+        legend.appendChild(div);    
+        var div = document.createElement('div');
+        div.innerHTML = '<font color="#f0f921">Water Main Project Completed</font>';
+        legend.appendChild(div);  
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+      }
+    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDVhHFe52p2Ch3s9aVQ8HNGmFSpsU9GrQ&callback=initMap">
+    </script>
+  </body>
+</html>
