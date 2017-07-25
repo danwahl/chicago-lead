@@ -1609,7 +1609,7 @@
           icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
         });
         
-        var content = '<h3>1701100</h3><div>ON S HEATH AVE FROM W 13TH ST TO W 13TH ST<div><div>ON S OAKLEY AVE FROM W 13TH ST TO W 13TH ST<div><br><div>2017-07-18 <font color="#0d0887">Construction Mobilization</t></div>';
+        var content = '<h3>1701100</h3><div>ON S HEATH AVE FROM W 13TH ST TO W 13TH ST<div><div>ON S OAKLEY AVE FROM W 13TH ST TO W 13TH ST<div><br><div>2017-07-18 <font color="#0d0887">Construction Mobilization</t></div><div>2017-07-24 <font color="#5302a3">Pipe Installation Completed</t></div>';
         
         google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
           return function() {
@@ -1627,7 +1627,7 @@
         mainPath = new google.maps.Polyline({
           path: mainCoordinates,
           geodesic: true,
-          strokeColor: '#0d0887',
+          strokeColor: '#5302a3',
           strokeOpacity: 0.67,
           strokeWeight: 10
         });
@@ -1650,7 +1650,7 @@
         mainPath = new google.maps.Polyline({
           path: mainCoordinates,
           geodesic: true,
-          strokeColor: '#0d0887',
+          strokeColor: '#5302a3',
           strokeOpacity: 0.67,
           strokeWeight: 10
         });
@@ -1792,13 +1792,76 @@
          
         
         marker = new google.maps.Marker({
+          position: {lat: 41.748144, lng: -87.561326},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701116</h3><div>ON E 81ST ST FROM S COLFAX AVE TO S EXCHANGE AVE<div><div>ON S MANISTEE AVE FROM E 81ST ST TO E 82ND ST<div><br><div>2017-07-24 <font color="#f0f921">Water Main Project Completed</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.748144, lng: -87.561326},
+          {lat: 41.748262, lng: -87.552830}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f0f921',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.748198, lng: -87.557685},
+          {lat: 41.746375, lng: -87.557644}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#f0f921',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
           position: {lat: 41.736016, lng: -87.643529},
           map: map,
           visible: false,
           icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
         });
         
-        var content = '<h3>1701119</h3><div>ON S HALSTED ST FROM W 87TH ST TO W 90TH ST<div><br><div>2017-07-17 <font color="#8b0aa5">Concrete Cap Complete</t></div>';
+        var content = '<h3>1701119</h3><div>ON S HALSTED ST FROM W 87TH ST TO W 90TH ST<div><br><div>2017-07-17 <font color="#8b0aa5">Concrete Cap Complete</t></div><div>2017-07-24 <font color="#b83289">Street Restoration</t></div>';
         
         google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
           return function() {
@@ -1816,7 +1879,47 @@
         mainPath = new google.maps.Polyline({
           path: mainCoordinates,
           geodesic: true,
-          strokeColor: '#8b0aa5',
+          strokeColor: '#b83289',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.699146, lng: -87.674151},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701143</h3><div>ON S HOYNE AVE FROM W 107TH ST TO S 111TH ST<div><br><div>2017-07-24 <font color="#0d0887">Construction Mobilization</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.699146, lng: -87.674151},
+          {lat: 41.691881, lng: -87.674032}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#0d0887',
           strokeOpacity: 0.67,
           strokeWeight: 10
         });
