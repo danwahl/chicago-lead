@@ -314,7 +314,7 @@
           icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
         });
         
-        var content = '<h3>1701026</h3><div>ON W BELLE PLAINE AVE FROM N LEAVITT ST TO N LINCOLN AVE<div><div>ON N LINCOLN AVE FROM W MONTROSE AVE TO W IRVING PARK RD<div><br><div>2017-07-18 <font color="#febd2a">Pressure and Disinfection Tests Approved</t></div>';
+        var content = '<h3>1701026</h3><div>ON W BELLE PLAINE AVE FROM N LEAVITT ST TO N LINCOLN AVE<div><div>ON N LINCOLN AVE FROM W MONTROSE AVE TO W IRVING PARK RD<div><br><div>2017-07-18 <font color="#febd2a">Pressure and Disinfection Tests Approved</t></div><div>2017-07-25 <font color="#f48849">Water Service Transfer Complete</t></div>';
         
         google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
           return function() {
@@ -332,7 +332,7 @@
         mainPath = new google.maps.Polyline({
           path: mainCoordinates,
           geodesic: true,
-          strokeColor: '#febd2a',
+          strokeColor: '#f48849',
           strokeOpacity: 0.67,
           strokeWeight: 10
         });
@@ -355,7 +355,7 @@
         mainPath = new google.maps.Polyline({
           path: mainCoordinates,
           geodesic: true,
-          strokeColor: '#febd2a',
+          strokeColor: '#f48849',
           strokeOpacity: 0.67,
           strokeWeight: 10
         });
@@ -417,7 +417,7 @@
           icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
         });
         
-        var content = '<h3>1701028</h3><div>ON N BELL AVE FROM W JARVIS AVE TO W TOUHY AVE<div><div>ON N OAKLEY AVE FROM W CHASE AVE TO W TOUHY AVE<div><div>ON N HAMILTON AVE FROM W CHASE AVE TO W TOUHY AVE<div><br><div>2017-07-11 <font color="#5302a3">Pipe Installation Completed</t></div>';
+        var content = '<h3>1701028</h3><div>ON N BELL AVE FROM W JARVIS AVE TO W TOUHY AVE<div><div>ON N OAKLEY AVE FROM W CHASE AVE TO W TOUHY AVE<div><div>ON N HAMILTON AVE FROM W CHASE AVE TO W TOUHY AVE<div><br><div>2017-07-11 <font color="#5302a3">Pipe Installation Completed</t></div><div>2017-07-25 <font color="#f48849">Water Service Transfer Complete</t></div>';
         
         google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
           return function() {
@@ -435,7 +435,7 @@
         mainPath = new google.maps.Polyline({
           path: mainCoordinates,
           geodesic: true,
-          strokeColor: '#5302a3',
+          strokeColor: '#f48849',
           strokeOpacity: 0.67,
           strokeWeight: 10
         });
@@ -458,7 +458,7 @@
         mainPath = new google.maps.Polyline({
           path: mainCoordinates,
           geodesic: true,
-          strokeColor: '#5302a3',
+          strokeColor: '#f48849',
           strokeOpacity: 0.67,
           strokeWeight: 10
         });
@@ -481,7 +481,7 @@
         mainPath = new google.maps.Polyline({
           path: mainCoordinates,
           geodesic: true,
-          strokeColor: '#5302a3',
+          strokeColor: '#f48849',
           strokeOpacity: 0.67,
           strokeWeight: 10
         });
@@ -1880,6 +1880,92 @@
           path: mainCoordinates,
           geodesic: true,
           strokeColor: '#b83289',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+         
+        
+        marker = new google.maps.Marker({
+          position: {lat: 41.687019, lng: -87.632548},
+          map: map,
+          visible: false,
+          icon: 'https://maps.google.com/mapfiles/ms/micons/drinking_water.png'
+        });
+        
+        var content = '<h3>1701126</h3><div>ON W 114TH ST FROM S STEWART AVE TO S YALE AVE<div><div>ON S PRINCETON AVE FROM W 114TH ST TO W 115TH ST<div><div>ON S YALE AVE FROM W 114TH ST TO W 115TH ST<div><br><div>2017-07-25 <font color="#febd2a">Pressure and Disinfection Tests Approved</t></div>';
+        
+        google.maps.event.addListener(marker, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.687019, lng: -87.632548},
+          {lat: 41.687052, lng: -87.629050}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#febd2a',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.687050, lng: -87.630145},
+          {lat: 41.685227, lng: -87.630095}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#febd2a',
+          strokeOpacity: 0.67,
+          strokeWeight: 10
+        });
+            
+        mainPath.setMap(map);
+        
+        google.maps.event.addListener(mainPath, 'click', (function(marker, content, infowindow) { 
+          return function() {
+              infowindow.setContent(content);
+              infowindow.open(map, marker);
+          };
+        })(marker, content, infowindow));  
+             
+        
+        mainCoordinates = [
+          {lat: 41.687052, lng: -87.629050},
+          {lat: 41.685243, lng: -87.628891}
+        ];
+            
+        mainPath = new google.maps.Polyline({
+          path: mainCoordinates,
+          geodesic: true,
+          strokeColor: '#febd2a',
           strokeOpacity: 0.67,
           strokeWeight: 10
         });
