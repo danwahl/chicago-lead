@@ -37,7 +37,7 @@ if __name__ == '__main__':
     driver.get(site)
     assert title in driver.title
     
-    for r in itertools.product(range(15, 17), range(500)):
+    for r in itertools.product(range(14, 15), range(500)):
         # generate project id
         pid = '{:02d}01{:03d}'.format(r[0], r[1])
         
