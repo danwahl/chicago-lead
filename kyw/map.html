@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <title>Water main replacements and lead tests</title>
+
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+    
+     <!-- leaflet css -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+        crossorigin=""/>
+    <style>
+
+    <style>
+      body { margin:0; padding:0; }
+      #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+  </head>
+  <body>
+
+  <div id='map'></div>
+
+  <!-- leaflet js -->
+  <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+     integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+     crossorigin="">
+  </script>
+  
+  <!-- d3 js -->
+  <script src="https://d3js.org/d3.v5.js"></script>
+    
+  <script>
+    /*----------------------------------------------------------------------------
+      map setup
+     *----------------------------------------------------------------------------*/
+    var attribution = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>';
+    var accessToken = 'pk.eyJ1IjoiZHJ3YWhsIiwiYSI6ImNqOG9zN25nYTA3dG8ycXJzNGpqbmE3cTgifQ.mNd1sk4ymlt8lvZTwKADOA';
+    
+    // tile layers
+    var streets = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: attribution,
+        id: 'mapbox.streets',
+        accessToken: accessToken,
+    });
+    
+    var light = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: attribution,
+        id: 'mapbox.light',
+        accessToken: accessToken,
+    });
+    
+    // marker layer(s)
+    var markers = L.layerGroup([]);
+    var lines = L.layerGroup([]);
+    
+    // map
+    var map = L.map('map', {
+        center: [41.8781, -87.6298],
+        zoom: 12,
+        preferCanvas: true,
+        layers: [streets, markers, lines],
+    });
+    
+    // control layers
+    var baseMaps = {
+        "Streets": streets,
+        "Light": light,
+    };
+    
+    var overlayMaps = {
+        "Markers": markers,
+        "Lines": lines,
+    };
+    
+    L.control.layers(baseMaps, overlayMaps).addTo(map);
+    
+    // load markers
+    d3.csv("wq.csv", function(data) {
+      //console.log(data);
+      var latlng = [data['lat'], data['lng']];				
+
+      var values = [data['1st'], data['4th'], data['6th'], data['5min'], data['5min2']]
+      var intensity = measurements[i]['fields']['value']/;
+      var color = '#00f';
+      
+      // draw markers
+      var marker = L.circleMarker(latlng, {
+          stroke: false,
+          fillColor: color,
+          fillOpacity: 0.5,
+          radius: 5
+      });
+      
+      // popup text
+      popup = "<table> \
+          <tr><td>date</td><td>" + data['date'] + "</td></tr> \
+          <tr><td>address</td><td>" + data['address'] + "</td></tr> \
+          </table>"
+      
+      // add to marker list
+      markers.addLayer(marker.bindPopup(popup));
+    });
+    
+    // load lines
+    d3.csv("cip.csv", function(data) {
+      //console.log(data);
+      var latlng = [[data['from_lat'], data['from_lng']], [data['to_lat'], data['to_lng']]];
+      var color = '#00f';
+      
+      // draw markers
+      var line = L.polyline(latlng, {
+          color: color,
+          weight: 5,
+          opacity: 0.7,
+      });
+      
+      // popup text
+      popup = "<table> \
+          <tr><td>date</td><td>" + data['start'] + " to " + data['end'] + "</td></tr> \
+          <tr><td>bes</td><td>" + data['bes'] + "</td></tr> \
+          <tr><td>location</td><td>" + data['on'] + " and " + data['from'] + " to " + data['on'] + " and " + data['to'] + "</td></tr> \
+          </table>"
+            
+      // add to marker list
+      lines.addLayer(line.bindPopup(popup));
+    });
+  </script>
+  </body>
+</html>
