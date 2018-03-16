@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset=utf-8 />
-    <title>Water main replacements and lead tests</title>
+    <title>Main Replacements and Lead Tests</title>
 
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
     
@@ -59,7 +59,7 @@
         center: [41.8781, -87.6298],
         zoom: 12,
         preferCanvas: true,
-        layers: [streets, markers, lines],
+        layers: [light, markers, lines],
     });
     
     // control layers
@@ -79,10 +79,11 @@
     d3.csv("wq.csv", function(data) {
       //console.log(data);
       var latlng = [data['lat'], data['lng']];				
-
-      var values = [data['1st'], data['4th'], data['6th'], data['5min'], data['5min2']]
-      var intensity = measurements[i]['fields']['value']/;
-      var color = '#00f';
+      var values = [data['1st'], data['4th'], data['6th'], data['5min'], data['5min2']].map(Number);
+      var max_value = Math.max(...values);
+      var intensity = max_value/15.0;
+      var hue = ((1.0 - Math.min(intensity, 1.0))*100).toString(10);
+      var color =  ['hsl(', hue, ', 100%, 50%)'].join('');
       
       // draw markers
       var marker = L.circleMarker(latlng, {
@@ -96,6 +97,7 @@
       popup = "<table> \
           <tr><td>date</td><td>" + data['date'] + "</td></tr> \
           <tr><td>address</td><td>" + data['address'] + "</td></tr> \
+          <tr><td>ppb</td><td>" + max_value + "</td></tr> \
           </table>"
       
       // add to marker list
@@ -112,7 +114,7 @@
       var line = L.polyline(latlng, {
           color: color,
           weight: 5,
-          opacity: 0.7,
+          opacity: 0.5,
       });
       
       // popup text
