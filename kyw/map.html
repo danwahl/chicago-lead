@@ -127,6 +127,23 @@
       // add to marker list
       lines.addLayer(line.bindPopup(popup));
     });
+    
+    // load test
+    d3.csv("test.csv", function(data) {
+      //console.log(data);
+      var latlng = [[data['p1_lat'], data['p1_lng']], [data['p2_lat'], data['p2_lng']]];
+      var color = '#000';
+      
+      // draw markers
+      var line = L.polyline(latlng, {
+          color: color,
+          weight: 3,
+          opacity: 0.5,
+      });
+            
+      // add to marker list
+      lines.addLayer(line);
+    });
   </script>
   </body>
 </html>
