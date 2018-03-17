@@ -1,6 +1,9 @@
 import pandas as pd
 import numpy as np
 import nvector as nv
+import best
+import best.plot
+from pymc import MCMC
 
 MAX_DISTANCE = 50.0
 
@@ -54,6 +57,15 @@ if __name__ == '__main__':
     
     test = pd.DataFrame(data)
     test.to_csv('test.csv')
+
+    # run "best" analysis
+    after = test[(test['date'] > test['end']) & test['actual_end'] & test['study']]['val']
+    before = test[(test['date'] < test['start']) & test['actual_start'] & test['study']]['val']
+
+    model = best.make_model({'before': before.tolist(), 'after': after.tolist()})
     
-    after = test[(test['date'] > test['end']) & test['actual_end'] & test['study']]['val'].tolist()
-    before = test[(test['date'] < test['start']) & test['actual_start'] & test['study']]['val'].tolist()
+    M = MCMC(model)
+    M.sample(iter=110000, burn=10000)
+    
+    fig = best.plot.make_figure(M)
+    fig.savefig('best.png', dpi=70)
