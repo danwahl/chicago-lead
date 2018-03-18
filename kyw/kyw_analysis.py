@@ -4,6 +4,7 @@ import nvector as nv
 import best
 import best.plot
 from pymc import MCMC
+import statsmodels.stats as stats
 
 MAX_DISTANCE = 50.0
 
@@ -69,3 +70,7 @@ if __name__ == '__main__':
     
     fig = best.plot.make_figure(M)
     fig.savefig('best.png', dpi=70)
+    
+    # t test for comparison
+    (tstat, pvalue, df) = stats.weightstats.ttest_ind(after, before)
+    print "tstat = %f, pvalue = %f, df = %d" % (tstat, pvalue, df)

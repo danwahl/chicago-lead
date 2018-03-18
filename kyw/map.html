@@ -98,7 +98,7 @@
           <tr><td>date</td><td>" + data['date'] + "</td></tr> \
           <tr><td>address</td><td>" + data['address'] + "</td></tr> \
           <tr><td>ppb</td><td>" + max_value + "</td></tr> \
-          </table>"
+          </table>";
       
       // add to marker list
       markers.addLayer(marker.bindPopup(popup));
@@ -122,7 +122,7 @@
           <tr><td>date</td><td>" + data['start'] + " to " + data['end'] + "</td></tr> \
           <tr><td>bes</td><td>" + data['bes'] + "</td></tr> \
           <tr><td>location</td><td>" + data['on'] + " and " + data['from'] + " to " + data['on'] + " and " + data['to'] + "</td></tr> \
-          </table>"
+          </table>";
             
       // add to marker list
       lines.addLayer(line.bindPopup(popup));
@@ -140,9 +140,14 @@
           weight: 3,
           opacity: 0.5,
       });
+      
+      // popup text
+      popup = "<table> \
+          <tr><td>d</td><td>" + data['d'] + "</td></tr> \
+          </table>";
             
       // add to marker list
-      lines.addLayer(line);
+      lines.addLayer(line.bindPopup(popup));
     });
   </script>
   </body>
